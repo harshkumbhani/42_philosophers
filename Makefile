@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/30 13:30:19 by hkumbhan          #+#    #+#              #
-#    Updated: 2024/01/02 10:28:08 by hkumbhan         ###   ########.fr        #
+#    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
+#    Updated: 2024/01/02 13:56:54 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ---------------------------------- Config ---------------------------------- #
 NAME				:= philo
 CC					:= cc
-CFLAGS				:=  -I./includes -g # -Wall -Wextra -Werror
+CFLAGS				:=  -I./includes -g -Wall -Wextra -Werror
 
 # --------------------------- Program Source files --------------------------- #
 OBJDIR				:= ./objs
