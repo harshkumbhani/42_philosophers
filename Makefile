@@ -6,14 +6,14 @@
 #    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
-#    Updated: 2024/01/02 13:56:54 by hkumbhan         ###   ########.fr        #
+#    Updated: 2024/01/03 11:27:44 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ---------------------------------- Config ---------------------------------- #
 NAME				:= philo
-CC					:= cc
-CFLAGS				:=  -I./includes -g -Wall -Wextra -Werror
+CC					:= cc -fsanitize=thread
+CFLAGS				:=  -I./includes -g #-Wall -Wextra -Werror
 
 # --------------------------- Program Source files --------------------------- #
 OBJDIR				:= ./objs
