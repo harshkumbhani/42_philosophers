@@ -6,20 +6,21 @@
 #    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
-#    Updated: 2024/01/03 11:27:44 by hkumbhan         ###   ########.fr        #
+#    Updated: 2024/01/04 17:27:39 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ---------------------------------- Config ---------------------------------- #
 NAME				:= philo
-CC					:= cc -fsanitize=thread
+CC					:= cc #-fsanitize=thread
 CFLAGS				:=  -I./includes -g #-Wall -Wextra -Werror
 
 # --------------------------- Program Source files --------------------------- #
 OBJDIR				:= ./objs
-VPATH				:= ./src/
+VPATH				:= ./src/ ./src/init/
 
-SRC					:= main.c time.c
+SRC					:= main.c time.c utils.c init.c init_utils.c \
+						thread_and_mutexes.c
 
 SRCS				:= $(SRC)
 
@@ -29,7 +30,7 @@ OBJS				:= $(addprefix $(OBJDIR)/, ${SRCS:%.c=%.o})
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -pthread -o $@
+	$(CC) $(CFLAGS) -pthread $(OBJS) -o $@
 
 $(OBJDIR)/%.o: %.c
 	mkdir -p $(dir $@)
