@@ -6,21 +6,22 @@
 #    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
-#    Updated: 2024/01/05 15:13:17 by hkumbhan         ###   ########.fr        #
+#    Updated: 2024/01/05 16:23:24 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ---------------------------------- Config ---------------------------------- #
 NAME				:= philo
 CC					:= cc #-fsanitize=thread
-CFLAGS				:=  -I./includes -g #-Wall -Wextra -Werror
+CFLAGS				:= -I./includes -g #-Wall -Wextra -Werror
 
 # --------------------------- Program Source files --------------------------- #
 OBJDIR				:= ./objs
-VPATH				:= ./src/ ./src/init/ ./src/time/ ./src/utils/
+VPATH				:= ./src/ ./src/init/ ./src/time/ ./src/utils/ \
+						./src/monitor/
 
 SRC					:= main.c time.c utils.c init.c init_utils.c \
-						thread_and_mutexes.c
+						thread_and_mutexes.c routine.c print.c
 
 SRCS				:= $(SRC)
 

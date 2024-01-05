@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:32:54 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/05 15:10:47 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:19:51 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@
 
 typedef enum s_state
 {
-	EATING,
-	SLEEPING,
-	THINKING,
-	DIED,
-	FORK,
+	FORK = 0,
+	EATING = 1,
+	SLEEPING = 2,
+	THINKING = 3,
+	DIED = 4
 }	t_state;
 
 typedef	struct s_arg
@@ -59,6 +59,7 @@ typedef struct s_philo
 	size_t			time_last_eat;
 	size_t			*start_time;
 	pthread_t		thread;
+	pthread_mutex_t	m_philo;
 	pthread_mutex_t	*right_f;
 	pthread_mutex_t	*left_f;
 	pthread_mutex_t	*print_log;
@@ -83,14 +84,17 @@ int		ft_usleep(size_t ms);
 
 bool	init(t_main *philos, t_arg *args, int ac, char **av);
 void	init_arguments(char **av, t_arg *args);
-void	lst_add_back(t_main *main_state, t_philo *new_node);
-void	*ft_calloc(size_t count, size_t size);
 bool	init_mutex(t_main *main_state);
 bool	init_threads(t_main *main_state);
-void	*routine(void *arg);
 
+/* -------------------------- Monitors and routines ------------------------- */
+
+void	*routine(void *arg);
+void	print_log(t_state state, t_philo *philo);
 /* ---------------------------------- Utils --------------------------------- */
 
+void	lst_add_back(t_main *main_state, t_philo *new_node);
+void	*ft_calloc(size_t count, size_t size);
 bool	check(char **av);
 long	ft_atol(const char *str);
 

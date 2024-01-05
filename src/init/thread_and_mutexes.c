@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:15:58 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/05 15:05:16 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:55:34 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ bool	init_mutex(t_main *main_state)
 		temp->right_f = ft_calloc(1, sizeof(pthread_mutex_t));
 		if (pthread_mutex_init(temp->right_f, NULL) != 0)
 			return (false);
-		temp->left_f = temp->next->right_f;
+		if (pthread_mutex_init(&(temp->m_philo), NULL) != 0)
+			return (false);
 		temp->print_log = &(main_state->print_log);
 		temp->start_time = &(main_state->start_time);
 		temp = temp->next;
@@ -32,17 +33,6 @@ bool	init_mutex(t_main *main_state)
 			break ;
 	}
 	return (true);
-}
-
-void *routine(void *arg)
-{
-	t_philo	*philo;
-
-	philo = (t_philo *)arg;
-	pthread_mutex_lock(philo->print_log);
-	printf("Philo index: %d\n", philo->index);
-	pthread_mutex_unlock(philo->print_log);
-	return (NULL);
 }
 
 bool	init_threads(t_main *main_state)

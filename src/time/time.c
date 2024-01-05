@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 10:28:20 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/02 11:16:04 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:19:33 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	gettime(void)
 
 	time = (struct timeval){};
 	gettimeofday(&time, NULL);
-	return (time.tv_sec * 1000 + (time.tv_usec / 1000));
+	return ((size_t)time.tv_sec * 1000 + ((size_t)time.tv_usec / 1000));
 }
 
 int	ft_usleep(size_t ms)
