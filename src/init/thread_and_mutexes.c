@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:15:58 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/04 17:49:26 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:05:16 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void *routine(void *arg)
 
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->print_log);
+	printf("Philo index: %d\n", philo->index);
 	pthread_mutex_unlock(philo->print_log);
 	return (NULL);
 }

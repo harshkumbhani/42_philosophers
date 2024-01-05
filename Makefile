@@ -6,7 +6,7 @@
 #    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
-#    Updated: 2024/01/04 17:27:39 by hkumbhan         ###   ########.fr        #
+#    Updated: 2024/01/05 15:13:17 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS				:=  -I./includes -g #-Wall -Wextra -Werror
 
 # --------------------------- Program Source files --------------------------- #
 OBJDIR				:= ./objs
-VPATH				:= ./src/ ./src/init/
+VPATH				:= ./src/ ./src/init/ ./src/time/ ./src/utils/
 
 SRC					:= main.c time.c utils.c init.c init_utils.c \
 						thread_and_mutexes.c

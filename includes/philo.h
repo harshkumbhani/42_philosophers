@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:32:54 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/04 17:32:32 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:10:47 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,12 @@ typedef struct s_philo
 	struct s_philo	*next;
 }	t_philo;
 
-
 typedef struct s_main
 {
 	size_t			start_time;
 	pthread_mutex_t	print_log;
 	t_philo			*philos;
 }	t_main;
-
 
 /* ------------------------- Time related functions ------------------------- */
 
