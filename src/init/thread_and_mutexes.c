@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:15:58 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/05 17:55:34 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:28:23 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ bool	init_mutex(t_main *main_state)
 		temp->start_time = &(main_state->start_time);
 		temp = temp->next;
 		if (main_state->philos == temp)
+			break ;
+	}
+	while (1)
+	{
+		temp->left_f = temp->next->right_f;
+		temp = temp->next;
+		if (temp == main_state->philos)
 			break ;
 	}
 	return (true);

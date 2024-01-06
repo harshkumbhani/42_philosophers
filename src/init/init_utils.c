@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:00:37 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/05 18:01:41 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:38:54 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,6 @@ void	lst_add_back(t_main *main_state, t_philo *new_node)
 		temp->next = new_node;
 		new_node->previous = temp;
 		new_node->next = main_state->philos;
-		new_node->left_f = main_state->philos->right_f;
-		//if (new_node->index == new_node->data->nb_philos)
-		//	new_node->next->left_f = new_node->right_f;
 		main_state->philos->previous = new_node;
 	}
 }
