@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:39:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 16:44:14 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/06 20:49:50 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	init_arguments(char **av, t_arg *args)
 		args->eat_number = (int)ft_atol(av[5]);
 	else
 		args->eat_number = -1;
-	//print_args(args);
 }
 
 bool	init_philos(t_main *main_state, t_arg *arguments)

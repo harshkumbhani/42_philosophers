@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:32:54 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 16:18:49 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/06 20:18:28 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 #define BYELLOW	"\e[1;33m"
 #define RED		"\e[31m"
 #define GREEN	"\e[32m"
+
+# define PICK_FORK	1
+# define DROP_FORK	2
 
 /* --------------------------------- structs -------------------------------- */
 

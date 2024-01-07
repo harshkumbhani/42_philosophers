@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 16:46:38 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/06 20:48:57 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,32 @@ void	do_sleep(t_philo *philo)
 	ft_usleep(philo->data->time_to_sleep);
 }
 
+void	forks(t_philo *philo, int state)
+{
+	if (state == PICK_FORK)
+	{
+		pthread_mutex_lock(philo->left_f);
+		pthread_mutex_lock(philo->right_f);
+		print_log(FORK, philo);
+		print_log(FORK, philo);
+	}
+	if (state == DROP_FORK)
+	{
+		pthread_mutex_unlock(philo->right_f);
+		pthread_mutex_unlock(philo->left_f);
+	}
+}
+
 void	do_eat(t_philo *philo)
 {
-	pthread_mutex_lock(philo->left_f);
-	pthread_mutex_lock(philo->right_f);
-	print_log(FORK, philo);
-	print_log(FORK, philo);
+	forks(philo, PICK_FORK);
 	pthread_mutex_lock(&(philo->m_philo));
 	philo->times_eaten++;
 	philo->time_last_eat = gettime();
 	print_log(EATING, philo);
 	pthread_mutex_unlock(&(philo->m_philo));
 	ft_usleep(philo->data->time_to_eat);
-	pthread_mutex_unlock(philo->right_f);
-	pthread_mutex_unlock(philo->left_f);
+	forks(philo, DROP_FORK);
 }
 
 void *routine(void *arg)
