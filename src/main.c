@@ -6,11 +6,16 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:37:05 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/05 17:47:43 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/07 09:38:52 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	monitor(t_main *main_state)
+{
+	
+}
 
 int	main(int argc, char **argv)
 {
@@ -27,10 +32,10 @@ int	main(int argc, char **argv)
 	pthread_mutex_unlock(&main_state.print_log);
 	while (1)
 	{
-		//pthread_join(philo->thread, NULL);
-		//philo = philo->next;
-		//if (philo == main_state.philos)
-		//	break ;
+		pthread_join(philo->thread, NULL);
+		philo = philo->next;
+		if (philo == main_state.philos)
+			break ;
 	}
 	return (EXIT_SUCCESS);
 }
