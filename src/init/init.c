@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:39:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 20:49:50 by harsh            ###   ########.fr       */
+/*   Updated: 2024/01/08 12:39:04 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	init_philos(t_main *main_state, t_arg *arguments)
 		philo->done_eat = false;
 		philo->index = i;
 		philo->times_eaten = 0;
-		philo->time_last_eat = 0;
+		philo->time_last_eat = gettime();
 		philo->start_time = &(main_state->start_time);
 		philo->data = arguments;
 		lst_add_back(main_state, philo);

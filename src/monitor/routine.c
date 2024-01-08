@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 20:48:57 by harsh            ###   ########.fr       */
+/*   Updated: 2024/01/08 12:45:32 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	forks(t_philo *philo, int state)
 {
 	if (state == PICK_FORK)
 	{
+		usleep(500);
 		pthread_mutex_lock(philo->left_f);
 		pthread_mutex_lock(philo->right_f);
 		print_log(FORK, philo);
@@ -58,10 +59,12 @@ void *routine(void *arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->print_log);
 	pthread_mutex_unlock(philo->print_log);
-	do_think(philo);
+	pthread_mutex_lock(&philo->m_philo);
+	philo->time_last_eat = gettime();
+	pthread_mutex_unlock(&philo->m_philo);
 	if (philo->index % 2 == 0)
 		do_eat(philo);
-	while (1)
+	while (philo->die_flag == false)
 	{
 		do_sleep(philo);
 		do_think(philo);
