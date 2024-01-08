@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:32:54 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 20:18:28 by harsh            ###   ########.fr       */
+/*   Updated: 2024/01/08 14:20:24 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ bool	init_threads(t_main *main_state);
 
 void	*routine(void *arg);
 void	print_log(t_state state, t_philo *philo);
+void	free_everything(t_main *main_state);
 /* ---------------------------------- Utils --------------------------------- */
 
 void	lst_add_back(t_main *main_state, t_philo *new_node);

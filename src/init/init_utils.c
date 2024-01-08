@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:00:37 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 13:38:54 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:18:09 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	lst_add_back(t_main *main_state, t_philo *new_node)
 {
 	t_philo	*temp;
 
-	
 	if (main_state->philos == NULL)
 	{
 		new_node->next = new_node;

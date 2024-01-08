@@ -6,7 +6,7 @@
 #    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
-#    Updated: 2024/01/05 16:23:24 by hkumbhan         ###   ########.fr        #
+#    Updated: 2024/01/08 13:46:27 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ CFLAGS				:= -I./includes -g #-Wall -Wextra -Werror
 # --------------------------- Program Source files --------------------------- #
 OBJDIR				:= ./objs
 VPATH				:= ./src/ ./src/init/ ./src/time/ ./src/utils/ \
-						./src/monitor/
+						./src/monitor/ ./src/free/
 
 SRC					:= main.c time.c utils.c init.c init_utils.c \
-						thread_and_mutexes.c routine.c print.c
+						thread_and_mutexes.c routine.c print.c free.c
 
 SRCS				:= $(SRC)
 

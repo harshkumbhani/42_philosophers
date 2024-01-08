@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/08 12:45:32 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:52:23 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,17 @@ void *routine(void *arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->print_log);
 	pthread_mutex_unlock(philo->print_log);
-	pthread_mutex_lock(&philo->m_philo);
-	philo->time_last_eat = gettime();
-	pthread_mutex_unlock(&philo->m_philo);
 	if (philo->index % 2 == 0)
 		do_eat(philo);
+	pthread_mutex_lock(&philo->m_philo);
 	while (philo->die_flag == false)
 	{
+		pthread_mutex_unlock(&philo->m_philo);
 		do_sleep(philo);
 		do_think(philo);
 		do_eat(philo);
+		pthread_mutex_lock(&philo->m_philo);
 	}
+	pthread_mutex_unlock(&philo->m_philo);
 	return (NULL);
 }
