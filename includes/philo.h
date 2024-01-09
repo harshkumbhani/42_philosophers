@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:32:54 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 09:41:41 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:54:38 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,12 @@ bool	init(t_main *philos, t_arg *args, int ac, char **av);
 void	init_arguments(char **av, t_arg *args);
 bool	init_mutex(t_main *main_state);
 bool	init_threads(t_main *main_state);
+bool	check(char **av);
 
 /* -------------------------- Monitors and routines ------------------------- */
 
 void	*routine(void *arg);
+void	monitor(t_main *main_state);
 void	print_log(t_state state, t_philo *philo);
 void	handle_1_nb_of_philos(t_philo *philo);
 void	free_everything(t_main *main_state);
@@ -101,7 +103,6 @@ void	free_everything(t_main *main_state);
 
 void	lst_add_back(t_main *main_state, t_philo *new_node);
 void	*ft_calloc(size_t count, size_t size);
-bool	check(char **av);
 long	ft_atol(const char *str);
 void	print_args(t_arg *args);
 

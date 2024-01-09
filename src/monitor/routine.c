@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 09:41:12 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:04:39 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ static void	do_eat(t_philo *philo)
 {
 	forks(philo, PICK_FORK);
 	pthread_mutex_lock(&(philo->m_philo));
-	philo->times_eaten++;
 	philo->time_last_eat = gettime();
+	philo->times_eaten++;
 	print_log(EATING, philo);
 	pthread_mutex_unlock(&(philo->m_philo));
 	ft_usleep(philo->data->time_to_eat);
@@ -73,7 +73,7 @@ void	*routine(void *arg)
 	if (philo->index % 2 == 0)
 		do_eat(philo);
 	pthread_mutex_lock(&philo->m_philo);
-	while (philo->die_flag == false)
+	while (philo->die_flag == false && philo->done_eat == false)
 	{
 		pthread_mutex_unlock(&philo->m_philo);
 		do_sleep(philo);
