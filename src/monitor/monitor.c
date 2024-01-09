@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:53:51 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 10:37:00 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:09:01 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static void	kill_all_philos(t_main *main_state)
 		if (philo == main_state->philos)
 			break ;
 	}
-	ft_usleep(main_state->philos->data->time_to_die +
-		main_state->philos->data->time_to_die + 10);
 }
 
 static void	kill_the_philo(t_main *main_state, t_philo *philo)
@@ -60,11 +58,6 @@ void	monitor(t_main *main_state)
 	philo = main_state->philos;
 	while (true)
 	{
-		//if (philo_number == philo->data->nb_philos)
-		//{
-		//	kill_all_philos(main_state);
-		//	break ;
-		//}
 		if (check_philo_number(philo, philo_number, main_state) == true)
 			break ;
 		pthread_mutex_lock(&(philo->m_philo));
@@ -73,7 +66,8 @@ void	monitor(t_main *main_state)
 			kill_the_philo(main_state, philo);
 			break ;
 		}
-		if (philo->done_eat == false && philo->times_eaten == philo->data->eat_number)
+		if (philo->done_eat == false
+			&& philo->times_eaten == philo->data->eat_number)
 		{
 			philo->done_eat = true;
 			philo_number++;
