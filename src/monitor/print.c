@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:23:30 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/08 15:01:23 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:49:34 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	print_log(t_state state, t_philo *philo)
 		"is thinking", "died"
 	};
 
-	//pthread_mutex_lock(&philo->m_philo);
 	pthread_mutex_lock(philo->print_log);
 	if (philo->die_flag == false)
 	{
@@ -28,5 +27,4 @@ void	print_log(t_state state, t_philo *philo)
 			str[state]);
 	}
 	pthread_mutex_unlock(philo->print_log);
-	//pthread_mutex_unlock(&philo->m_philo);
 }

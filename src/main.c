@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:37:05 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/08 14:59:47 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/08 19:13:24 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ static void	kill_all_philos(t_main *main_state)
 	philo = main_state->philos;
 	while (true)
 	{
-		pthread_mutex_lock(&philo->m_philo);
 		if (philo->die_flag == false)
 			philo->die_flag = true;
-		pthread_mutex_unlock(&(philo->m_philo));
 		philo = philo->next;
 		if (philo == main_state->philos)
 			break ;
@@ -61,8 +59,12 @@ void	monitor(t_main *main_state)
 		if (gettime() - philo->time_last_eat >= philo->data->time_to_die)
 		{
 			pthread_mutex_unlock(&(philo->m_philo));
+			pthread_mutex_lock(&philo->m_philo);
 			print_log(DIED, philo);
+			pthread_mutex_unlock(&philo->m_philo);
+			pthread_mutex_lock(&main_state->print_log);
 			kill_all_philos(main_state);
+			pthread_mutex_unlock(&main_state->print_log);
 			break ;
 		}
 		if (philo->done_eat == false && philo->times_eaten == philo->data->eat_number)

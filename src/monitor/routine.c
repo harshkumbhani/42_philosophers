@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/08 14:52:23 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/08 19:12:00 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 void	do_think(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->m_philo);
 	print_log(THINKING, philo);
+	pthread_mutex_unlock(&philo->m_philo);
 }
 
 void	do_sleep(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->m_philo);
 	print_log(SLEEPING, philo);
+	pthread_mutex_unlock(&philo->m_philo);
 	ft_usleep(philo->data->time_to_sleep);
 }
 
