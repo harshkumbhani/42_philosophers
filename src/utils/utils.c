@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:21:14 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 08:56:16 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:40:45 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long	ft_atol(const char *str)
 	return (num * sign);
 }
 
-bool check(char **av)
+bool	check(char **av)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 #    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
-#    Updated: 2024/01/08 13:46:27 by hkumbhan         ###   ########.fr        #
+#    Updated: 2024/01/09 09:44:53 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,16 @@ OBJDIR				:= ./objs
 VPATH				:= ./src/ ./src/init/ ./src/time/ ./src/utils/ \
 						./src/monitor/ ./src/free/
 
-SRC					:= main.c time.c utils.c init.c init_utils.c \
-						thread_and_mutexes.c routine.c print.c free.c
+SRC					:= main.c
 
-SRCS				:= $(SRC)
+SRC_FREE			:= free.c
+SRC_INIT			:= init.c init_utils.c thread_and_mutexes.c
+SRC_MONITOR			:= monitor.c print.c routine.c
+SRC_TIME			:= time.c
+SRC_UTILS			:= utils.c
+
+SRCS				:= $(SRC) $(SRC_FREE) $(SRC_INIT) $(SRC_MONITOR) $(SRC_UTILS) \
+						$(SRC_TIME)
 
 OBJS				:= $(addprefix $(OBJDIR)/, ${SRCS:%.c=%.o})
 

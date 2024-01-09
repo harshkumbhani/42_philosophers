@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:32:54 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 08:56:47 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:41:41 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ bool	init_threads(t_main *main_state);
 
 void	*routine(void *arg);
 void	print_log(t_state state, t_philo *philo);
+void	handle_1_nb_of_philos(t_philo *philo);
 void	free_everything(t_main *main_state);
 
 /* ---------------------------------- Utils --------------------------------- */

@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 09:22:22 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:41:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,6 @@ static void	do_eat(t_philo *philo)
 	pthread_mutex_unlock(&(philo->m_philo));
 	ft_usleep(philo->data->time_to_eat);
 	forks(philo, DROP_FORK);
-}
-
-void	handle_1_nb_of_philos(t_philo *philo)
-{
-	do_think(philo);
-	printf("%lu %d %s\n", gettime() - *(philo->start_time), philo->index,
-			"has taken a fork");
 }
 
 void	*routine(void *arg)
