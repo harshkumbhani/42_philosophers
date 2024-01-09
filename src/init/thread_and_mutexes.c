@@ -6,11 +6,25 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:15:58 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/06 13:28:23 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:00:25 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	init_left_forks(t_main *main_state)
+{
+	t_philo	*temp;
+
+	temp = main_state->philos;
+	while (true)
+	{
+		temp->left_f = temp->next->right_f;
+		temp = temp->next;
+		if (temp == main_state->philos)
+			break ;
+	}
+}
 
 bool	init_mutex(t_main *main_state)
 {
@@ -19,7 +33,7 @@ bool	init_mutex(t_main *main_state)
 	temp = main_state->philos;
 	if (pthread_mutex_init(&main_state->print_log, NULL) != 0)
 		return (false);
-	while (1)
+	while (true)
 	{
 		temp->right_f = ft_calloc(1, sizeof(pthread_mutex_t));
 		if (pthread_mutex_init(temp->right_f, NULL) != 0)
@@ -32,13 +46,7 @@ bool	init_mutex(t_main *main_state)
 		if (main_state->philos == temp)
 			break ;
 	}
-	while (1)
-	{
-		temp->left_f = temp->next->right_f;
-		temp = temp->next;
-		if (temp == main_state->philos)
-			break ;
-	}
+	init_left_forks(main_state);
 	return (true);
 }
 
@@ -48,7 +56,7 @@ bool	init_threads(t_main *main_state)
 
 	temp = main_state->philos;
 	pthread_mutex_lock(&main_state->print_log);
-	while(1)
+	while (true)
 	{
 		if (pthread_create(&temp->thread, NULL, *routine, temp) != 0)
 			return (false);

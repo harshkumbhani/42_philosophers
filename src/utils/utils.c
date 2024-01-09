@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:21:14 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/04 15:50:08 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 08:56:16 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,13 @@ bool check(char **av)
 			return (false);
 	}
 	return (true);
+}
+
+void	print_args(t_arg *args)
+{
+	printf("Number of philos: %d\n", args->nb_philos);
+	printf("Time to die: %d\n", args->time_to_die);
+	printf("Time to sleep: %d\n", args->time_to_sleep);
+	printf("Time to eat: %d\n", args->time_to_eat);
+	printf("Number of times philos should eat: %d\n", args->eat_number);
 }

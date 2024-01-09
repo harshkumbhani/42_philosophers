@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:37:05 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/08 19:13:24 by harsh            ###   ########.fr       */
+/*   Updated: 2024/01/09 09:02:55 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,3 @@ int	main(int argc, char **argv)
 	free_everything(&main_state);
 	return (EXIT_SUCCESS);
 }
-
-// 1. Assign all values
-// 2. Create mutexes
-// 3. Lock the shared mutex
-// 4. Create threads (threads will be stuck due to shared mutex)
-// 5. After creating -> main thread will unlock shared
-// 6. Loop through linked list and check if they should die

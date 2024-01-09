@@ -6,20 +6,11 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:39:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/08 12:39:04 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 08:57:09 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	print_args(t_arg *args)
-{
-	printf("Number of philos: %d\n", args->nb_philos);
-	printf("Time to die: %d\n", args->time_to_die);
-	printf("Time to sleep: %d\n", args->time_to_sleep);
-	printf("Time to eat: %d\n", args->time_to_eat);
-	printf("Number of times philos should eat: %d\n", args->eat_number);
-}
 
 void	init_arguments(char **av, t_arg *args)
 {
@@ -55,7 +46,6 @@ bool	init_philos(t_main *main_state, t_arg *arguments)
 		lst_add_back(main_state, philo);
 		i++;
 	}
-
 	return (true);
 }
 

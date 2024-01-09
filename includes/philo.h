@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:32:54 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/08 14:20:24 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 08:56:47 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@
 
 /* --------------------------------- Colours -------------------------------- */
 
-#define NC		"\e[0m"
-#define YELLOW	"\e[33m"
-#define BYELLOW	"\e[1;33m"
-#define RED		"\e[31m"
-#define GREEN	"\e[32m"
+# define NC			"\e[0m"
+# define YELLOW		"\e[33m"
+# define BYELLOW	"\e[1;33m"
+# define RED		"\e[31m"
+# define GREEN		"\e[32m"
 
 # define PICK_FORK	1
 # define DROP_FORK	2
@@ -44,7 +44,7 @@ typedef enum s_state
 	DIED = 4
 }	t_state;
 
-typedef	struct s_arg
+typedef struct s_arg
 {
 	int		nb_philos;
 	int		time_to_die;
@@ -95,19 +95,13 @@ bool	init_threads(t_main *main_state);
 void	*routine(void *arg);
 void	print_log(t_state state, t_philo *philo);
 void	free_everything(t_main *main_state);
+
 /* ---------------------------------- Utils --------------------------------- */
 
 void	lst_add_back(t_main *main_state, t_philo *new_node);
 void	*ft_calloc(size_t count, size_t size);
 bool	check(char **av);
 long	ft_atol(const char *str);
+void	print_args(t_arg *args);
 
 #endif
-
-
-
-// starts with left fork
-// philo 1 right fork = philo->next->left_fork
-// philo 2 right fork = philo->next->left_fork
-//
-//
