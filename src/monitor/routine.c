@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 12:04:39 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:33:19 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,16 @@ static void	forks(t_philo *philo, int state)
 	if (state == PICK_FORK)
 	{
 		usleep(500);
-		pthread_mutex_lock(philo->left_f);
-		pthread_mutex_lock(philo->right_f);
+		if (philo->index % 2 == 0)
+		{
+			pthread_mutex_lock(philo->left_f);
+			pthread_mutex_lock(philo->right_f);
+		}
+		else
+		{
+			pthread_mutex_lock(philo->right_f);
+			pthread_mutex_lock(philo->left_f);
+		}
 		pthread_mutex_lock(&philo->m_philo);
 		print_log(FORK, philo);
 		print_log(FORK, philo);
@@ -72,15 +80,15 @@ void	*routine(void *arg)
 	}
 	if (philo->index % 2 == 0)
 		do_eat(philo);
-	pthread_mutex_lock(&philo->m_philo);
+	pthread_mutex_lock(philo->print_log);
 	while (philo->die_flag == false && philo->done_eat == false)
 	{
-		pthread_mutex_unlock(&philo->m_philo);
+		pthread_mutex_unlock(philo->print_log);
 		do_sleep(philo);
 		do_think(philo);
 		do_eat(philo);
-		pthread_mutex_lock(&philo->m_philo);
+		pthread_mutex_lock(philo->print_log);
 	}
-	pthread_mutex_unlock(&philo->m_philo);
+	pthread_mutex_unlock(philo->print_log);
 	return (NULL);
 }

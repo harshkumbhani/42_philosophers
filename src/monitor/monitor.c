@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:53:51 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 12:09:01 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:20:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ static bool	check_philo_number(t_philo *philo, int philo_number,
 {
 	if (philo_number == philo->data->nb_philos)
 	{
+		pthread_mutex_lock(&main_state->print_log);
 		kill_all_philos(main_state);
+		pthread_mutex_unlock(&main_state->print_log);
 		return (true);
 	}
 	return (false);
