@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:21:14 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 09:40:45 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:19:42 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ bool	check(char **av)
 	int	j;
 
 	j = 0;
+	if (ft_atol(av[1]) == 0)
+		return (false);
 	while (av[++j])
 	{
 		i = 0;

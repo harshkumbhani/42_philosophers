@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:39:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 08:57:09 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:21:41 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ bool	init(t_main *main_state, t_arg *args, int ac, char **av)
 		return (printf("Argument Error!\n"), false);
 	init_arguments(av, args);
 	if (init_philos(main_state, args) == false)
-		return (false);
+		return (printf("Alloc fail!\n"), false);
 	if (init_mutex(main_state) == false)
-		return (false);
+		return (printf("Mutex init fail!\n"), false);
 	if (init_threads(main_state) == false)
-		return (false);
+		return (printf("Threads init fail!\n"), false);
 	return (true);
 }
