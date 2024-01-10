@@ -6,31 +6,11 @@
 /*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:23:30 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/10 13:57:50 by harsh            ###   ########.fr       */
+/*   Updated: 2024/01/10 13:59:27 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-// void	print_fork_taken(size_t time, int index, char *str)
-// {
-// 	printf(GREEN"%lu %d %s"NC"\n", time, index, str);
-// }
-
-// void	print_eating(size_t time, int index, char *str)
-// {
-// 	printf(BLUE"%lu %d %s"NC"\n", time, index, str);
-// }
-
-// void	print_sleeping(size_t time, int index, char *str)
-// {
-// 	printf(YELLOW"%lu %d %s"NC"\n", time, index, str);
-// }
-
-// void	print_thinking(size_t time, int index, char *str)
-// {
-// 	printf(PURPLE"%lu %d %s"NC"\n", time, index, str);
-// }
 
 void	print_random_color_state(size_t time, int index, char *str)
 {
