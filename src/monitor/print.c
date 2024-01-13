@@ -6,7 +6,7 @@
 /*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:23:30 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/10 13:59:27 by harsh            ###   ########.fr       */
+/*   Updated: 2024/01/13 11:02:31 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_random_color_state(size_t time, int index, char *str)
 		BLACK, GREEN, BLUE, YELLOW, PURPLE, CYAN, WHITE
 	};
 
-	i = (index) % 7;
+	i = index % 7;
 	printf("%s%lu %d %s"NC"\n", colors[i], time, index, str);
 }
 
