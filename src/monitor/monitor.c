@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:53:51 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 12:20:12 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/05/05 14:52:46 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void	monitor(t_main *main_state)
 		if (check_philo_number(philo, philo_number, main_state) == true)
 			break ;
 		pthread_mutex_lock(&(philo->m_philo));
-		if (gettime() - philo->time_last_eat >= philo->data->time_to_die)
+		if (gettime() - (size_t)philo->time_last_eat
+			>= (size_t)philo->data->time_to_die)
 		{
 			kill_the_philo(main_state, philo);
 			break ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:20:53 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 13:33:19 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/05/05 15:30:28 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 static void	do_think(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->m_philo);
 	print_log(THINKING, philo);
-	pthread_mutex_unlock(&philo->m_philo);
 }
 
 static void	do_sleep(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->m_philo);
 	print_log(SLEEPING, philo);
-	pthread_mutex_unlock(&philo->m_philo);
 	ft_usleep(philo->data->time_to_sleep);
 }
 
@@ -42,10 +38,8 @@ static void	forks(t_philo *philo, int state)
 			pthread_mutex_lock(philo->right_f);
 			pthread_mutex_lock(philo->left_f);
 		}
-		pthread_mutex_lock(&philo->m_philo);
 		print_log(FORK, philo);
 		print_log(FORK, philo);
-		pthread_mutex_unlock(&philo->m_philo);
 	}
 	if (state == DROP_FORK)
 	{
@@ -57,11 +51,11 @@ static void	forks(t_philo *philo, int state)
 static void	do_eat(t_philo *philo)
 {
 	forks(philo, PICK_FORK);
-	pthread_mutex_lock(&(philo->m_philo));
+	pthread_mutex_lock(&philo->m_philo);
 	philo->time_last_eat = gettime();
 	philo->times_eaten++;
 	print_log(EATING, philo);
-	pthread_mutex_unlock(&(philo->m_philo));
+	pthread_mutex_unlock(&philo->m_philo);
 	ft_usleep(philo->data->time_to_eat);
 	forks(philo, DROP_FORK);
 }

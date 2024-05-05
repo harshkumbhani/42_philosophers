@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+         #
+#    By: harsh <harsh@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 12:24:11 by harsh             #+#    #+#              #
-#    Updated: 2024/01/09 09:44:53 by hkumbhan         ###   ########.fr        #
+#    Updated: 2024/05/05 15:02:35 by harsh            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ---------------------------------- Config ---------------------------------- #
 NAME				:= philo
-CC					:= cc #-fsanitize=thread
-CFLAGS				:= -I./includes -g #-Wall -Wextra -Werror
+CC					:= cc -fsanitize=thread
+CFLAGS				:= -I./includes -g -Wall -Wextra -Werror
 
 # --------------------------- Program Source files --------------------------- #
 OBJDIR				:= ./objs

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkumbhan <hkumbhan@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:37:05 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/01/09 09:57:53 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2024/05/05 14:52:33 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ int	main(int argc, char **argv)
 {
 	t_main	main_state;
 	t_arg	arguments;
-	t_philo	*philo;
 
 	main_state = (t_main){};
 	arguments = (t_arg){};
-	philo = main_state.philos;
 	if (init(&main_state, &arguments, argc, argv) == false)
 	{
 		free_everything(&main_state);
